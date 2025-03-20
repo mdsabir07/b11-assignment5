@@ -26,23 +26,6 @@ function assignedSum() {
     setInnerTextByIDandValue("taskAssigned", AssignedSum);
 }
 
-
-// get current time
-function getCurrentTime() {
-    const now = new Date();
-    let hours = now.getHours();
-    let minutes = now.getMinutes();
-    let seconds = now.getSeconds();
-    const amPm = hours >= 12 ? 'PM' : 'AM';
-
-    // converting hours 24 to 12
-    hours = hours % 12 || 12;
-    minutes = minutes < 10 ? '0' + minutes : minutes;
-    seconds = seconds < 10 ? '0' + seconds : seconds;
-
-    return `${hours}:${minutes}:${seconds} ${amPm}`;
-}
-
 // Assigned button JS
 // Button 1 js
 const btnCompleted1 = document.getElementById("btnCompleted1");
@@ -53,7 +36,6 @@ btnCompleted1.addEventListener("click", function () {
     }
     cartSum();
     assignedSum();
-
     const getHeading = getInnerTextValue("boxHeading1");
 
     const historyContainer = document.getElementById("history-container");
@@ -154,6 +136,23 @@ btnCompleted6.addEventListener("click", function () {
     historyContainer.appendChild(div);
 })
 
+
+// get current time
+function getCurrentTime() {
+    const now = new Date();
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    let seconds = now.getSeconds();
+    const amPm = hours >= 12 ? 'PM' : 'AM';
+
+    // converting hours 24 to 12
+    hours = hours % 12 || 12;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    return `${hours}:${minutes}:${seconds} ${amPm}`;
+}
+
 // Clear history JS
 const historyContainer = document.getElementById("history-container");
 const btnClear = document.getElementById("btnClear");
@@ -183,7 +182,6 @@ changeBgColor.addEventListener("mouseover", function () {
     changeBgColor.style.transition = "transform 3s";
     changeBgColor.style.transform = "rotate(360deg)";
 })
-
 
 // Today's date
 const today = new Date();
